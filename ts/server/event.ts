@@ -1,7 +1,7 @@
 const { v4: uuidv4 } = require('uuid')
 import { query } from "./../lib/database"
 import { getCache } from "./../lib/userCache"
-import { getMaster, getQuest, getQuestRewards } from "./../lib/masterDataCache"
+import { getEvent, getMaster, getQuest, getQuestRewards } from "./../lib/masterDataCache"
 import { calcPointHeal } from "./../contents/calcPointHeal"
 import { addReward } from "./../contents/addReward"
 
@@ -136,4 +136,12 @@ export async function get_ranking(req: any,res: any,route: any)
 	{
 	  return { status: 200 };
 	}
+
+    let transaction = route.query.transaction;
+    const result = await query("SELECT userId, point, User.name FROM Event LEFT JOIN User ON User.id = Event.userId ORDER BY point", []);
+	
+    return { 
+		status: 200,
+		save: result
+	};
 }
