@@ -128,3 +128,12 @@ export async function continue_act(req: any,res: any,route: any)
 		save: result[0]
 	};
 }
+
+export async function get_ranking(req: any,res: any,route: any)
+{
+    let session = await getCache(route.query.session);
+	if(!session)
+	{
+	  return { status: 200 };
+	}
+}

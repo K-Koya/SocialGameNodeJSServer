@@ -20,7 +20,12 @@ exports.Routes = {
 		"/info" : {
 			"/list" : "info#list",
 			"@id%s"   : "info#getInfo",
-		}
+		},
+		"/event" : {
+            "/quest": {
+                "/ranking": "event#get_ranking"
+            }
+        }
 	},
 	POST: {
 		"/login" : "user#login",
@@ -39,7 +44,14 @@ exports.Routes = {
 			"/start" : "quest#start",
 			"/result" : "quest#result",
 			"/continue" : "quest#continue_act"
-		}
+		},
+		"/event": {
+            "/quest": {
+                "/start": "event#start",
+                "/result": "event#result",
+                "/continue": "event#continue_act"
+            },
+        }
 	}
 }
 

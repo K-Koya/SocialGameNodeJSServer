@@ -101,6 +101,7 @@ function constructDicMaster()
 	createDicMaster("Quest");
 	createDicGroupListMaster("QuestRewards", "GroupId");
 	createDicGroupListMaster("Rewards", "GroupId");
+	createDicMaster("Event");
 }
 
 
@@ -132,6 +133,11 @@ export function getQuestRewards(id: number)
 export function getRewards(id: number)
 {
 	return mDicCache["Rewards"][id];
+}
+
+export function getEvent(id: number)
+{
+	return mDicCache["Event"][id];
 }
 
 
